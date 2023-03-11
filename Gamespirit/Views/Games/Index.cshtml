@@ -1,0 +1,87 @@
+﻿@{
+    ViewData["Title"] = "Games Page";
+}
+
+<!-- HTML -->
+<head>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.css" />
+    <link rel="stylesheet" href="~/css/Games.css">
+</head>
+
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-lg-5 justify-content-center">
+            <div id="titleMessageBox" class="ro">
+                <div class="col-sm text-center">
+                    <h1 class="display-4">Welcome on Gamespirit</h1>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-5 justify-content-center">
+            <div id="titleMessageBox" class="ro">
+                <div class="col-sm text-center">
+                    <h1 class="display-4">Welcome on Gamespirit</h1>
+                </div>
+            </div>
+        </div>
+     
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-lg-5">
+            <div id="carousel-slider1">
+                <div>
+                    <img class="d-block w-100 carouselImage" src="/Images/PoPWW.jpg" alt="First slide">
+                </div>
+                <div>
+                    <img class="d-block w-100 carouselImage" src="/Images/LoKSR.jpg" alt="Third slide">
+                </div>
+                <div>
+                    <img class="d-block w-100 carouselImage" src="/Images/Turok2.jpg" alt="Third slide">
+                </div>
+                <div>
+                    <img class="d-block w-100 carouselImage" src="/Images/ResidentEvil.jpg" alt="Third slide">
+                </div>
+             </div>
+        </div>
+        <div class="col-lg-5">
+            <div id="carousel-slider2">
+                <div>
+                    <img class="d-block w-100 carouselImage" src="/Images/PoPWW.jpg" alt="First slide">
+                </div>
+                <div>
+                    <img class="d-block w-100 carouselImage" src="/Images/LoKSR.jpg" alt="Third slide">
+                </div>
+                <div>
+                    <img class="d-block w-100 carouselImage" src="/Images/Turok2.jpg" alt="Third slide">
+                </div>
+                <div>
+                    <img class="d-block w-100 carouselImage" src="/Images/ResidentEvil.jpg" alt="Third slide">
+                </div>
+             </div>
+        </div>
+    </div>
+</div>
+
+<!-- Calling jQuery -->
+<script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+
+<!-- Calling Slick Library -->
+<script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+<script>
+
+    for(let i=1;i<=2;i++){
+        $("#carousel-slider"+i).slick({
+            arrows: true,
+            infinite: true,
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            autoplay: true,
+            autoplaySpeed: 3000,
+            mobileFirst: true
+        });
+    }
+ </script>
