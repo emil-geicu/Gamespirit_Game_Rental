@@ -18,5 +18,23 @@ html {
 }
 
 body {
-  margin-bottom: 60px;
+    margin-bottom: 60px;    
+}
+
+.contentBackgroundImage {
+    background-image: url("../Images/ContentBacgroundImage.gif");
+    width: auto;
+    height: auto;
+    background-size: 100% 100%;
+}
+
+.navbar-brand:hover, .nav-item:hover {
+    background-color: black;
+    transition: 1s;
+    -moz-border-radius-topleft: 20px;
+    -moz-border-radius-topright: 20px;
+    -moz-border-radius-bottomright: 20px;
+    -moz-border-radius-bottomleft: 20px;
+    -webkit-border-radius: 20px 20px 20px 20px;
+    border-radius: 20px 20px 20px 20px;
 }
