@@ -15,5 +15,9 @@ namespace Gamespirit.Controllers
         {
             return View();
         }
+        public IActionResult PlayerDetails()
+        {
+            return View();
+        }
     }
 }

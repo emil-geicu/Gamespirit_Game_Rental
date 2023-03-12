@@ -33,22 +33,22 @@
         <div class="col-lg-5">
             <div id="carousel-slider1">
                 <div>
-                    <a href="#">
+                    <a asp-controller="Games" asp-action="GameDetails">
                         <img class="d-block w-100 carouselImage" src="/Images/Turok2.jpg" alt="First slide">
                     </a>
                 </div>
                 <div>
-                    <a href="#">
+                    <a asp-controller="Games" asp-action="GameDetails">
                         <img class="d-block w-100 carouselImage" src="/Images/LoKSR.jpg" alt="Third slide">
                     </a>
                 </div>
                 <div>
-                    <a href="#">
+                    <a asp-controller="Games" asp-action="GameDetails">
                         <img class="d-block w-100 carouselImage" src="/Images/PoPWW.jpg" alt="Third slide">
                     </a>
                 </div>
                 <div>
-                    <a href="#">
+                    <a asp-controller="Games" asp-action="GameDetails">
                         <img class="d-block w-100 carouselImage" src="/Images/ResidentEvil.jpg" alt="Third slide">
                     </a>
                 </div>
@@ -57,22 +57,22 @@
         <div class="col-lg-5">
             <div id="carousel-slider2">
                 <div>
-                    <a href="#">
+                    <a asp-controller="Games" asp-action="GameDetails">
                         <img class="d-block w-100 carouselImage" src="/Images/PoPWW.jpg" alt="First slide">
                     </a>
                 </div>
                 <div>
-                    <a href="#">
+                    <a asp-controller="Games" asp-action="GameDetails">
                         <img class="d-block w-100 carouselImage" src="/Images/LoKSR.jpg" alt="Third slide">
                     </a>
                 </div>
                 <div>
-                    <a href="#">
+                    <a asp-controller="Games" asp-action="GameDetails">
                         <img class="d-block w-100 carouselImage" src="/Images/Turok2.jpg" alt="Third slide">
                      </a>
                 </div>
                 <div>
-                    <a href="#">
+                    <a asp-controller="Games" asp-action="GameDetails">
                         <img class="d-block w-100 carouselImage" src="/Images/ResidentEvil.jpg" alt="Third slide">
                     </a>
 
@@ -107,7 +107,7 @@
 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 
 <div class="dataTableContainer">
-    <table id="GamesTable" class="display table-dark table-hover text-center zui-table zui-table-rounded" style="width:100%; color:white">
+    <table id="GamesTable" class="display table-dark table-hover text-center zui-table zui-table-rounded">
         <thead>
             <tr>
                 <th></th>
@@ -125,9 +125,9 @@
                 <td>Action/Adventure</td>
                 <td>2005</td>
                 <td>
-                    <a class="btn btn-primary fa fa-info"></a>
-                    <a class="btn btn-success fa fa-pencil-square"></a> 
-                    <a class="btn btn-danger fa fa-trash"></a>
+                    <a type="button" class="btn btn-dark fa fa-info" asp-controller="Games" asp-action="GameDetails"></a>
+                    <a class="btn btn-dark fa fa-pencil-square"></a> 
+                    <a class="btn btn-dark fa fa-trash"></a>
                     
                 </td>
           
@@ -138,9 +138,9 @@
                 <td>Action/Horror/Fantasy</td>
                 <td>2004</td>
                 <td>
-                    <a class="btn btn-primary fa fa-info"></a>
-                    <a class="btn btn-success fa fa-pencil-square"></a> 
-                    <a class="btn btn-danger fa fa-trash"></a>
+                    <a type="button" class="btn btn-dark fa fa-info" asp-controller="Games" asp-action="GameDetails"></a>
+                    <a class="btn btn-dark fa fa-pencil-square"></a>
+                    <a class="btn btn-dark fa fa-trash"></a>
                 </td>
           
             </tr>
@@ -150,9 +150,9 @@
                 <td>FPS</td>
                 <td>1999</td>
                 <td>
-                    <a class="btn btn-primary fa fa-info"></a>
-                    <a class="btn btn-success fa fa-pencil-square"></a>
-                    <a class="btn btn-danger fa fa-trash"></a>
+                    <a type="button" class="btn btn-dark fa fa-info" asp-controller="Games" asp-action="GameDetails"></a>
+                    <a class="btn btn-dark fa fa-pencil-square"></a>
+                    <a class="btn btn-dark fa fa-trash"></a>
                 </td>
          
             </tr>

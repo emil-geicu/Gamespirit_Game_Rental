@@ -26,6 +26,9 @@ body {
     width: auto;
     height: auto;
     background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 .navbar-brand:hover, .nav-item:hover {
