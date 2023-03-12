@@ -40,6 +40,8 @@ h1 {
     border: solid 1px #000000;
     border-collapse: collapse;
     border-spacing: 0;
+    width: 100%;
+    color: white
 }
 
     .zui-table thead th {
@@ -93,4 +95,57 @@ h1 {
     background-color: rgba(36, 161, 189,.7);
     border-radius: 20px;
     padding: 20px 20px 20px 20px;
+}
+
+.contentHeaderContainer {
+    background-color: rgb(0, 56, 74,.9);
+    border-radius: 20px;
+    padding: 20px 20px 20px 20px;
+    margin-bottom: 10px;
+}
+
+.contentBodyContainer {
+    background-color: rgb(0, 56, 74,.9);
+    border-radius: 20px;
+    padding: 20px 20px 20px 20px;
+    margin-left: 1px;
+}
+
+.detailedImg {
+    width: 100%;
+    border-radius: 60px;
+    padding: 10px 10px 10px 10px;
+}
+
+.title {
+    font-size: 60px;
+    color: white;
+    font-family: 'Book Antiqua';
+}
+
+.subTitle {
+    font-size: 30px;
+    color: white;
+    font-family: 'Book Antiqua';
+}
+
+.bodyText {
+    font-size: 20px;
+    color: white;
+    font-family: 'Book Antiqua';
+}
+
+iframe {
+    width: 1280px;
+    height: 720px;
+}
+
+#rentButton {
+    margin-bottom: 10px;
+}
+
+#profilePicture {
+    width: 100%;
+    margin-bottom:10px;
+    border-radius:60px;
 }
