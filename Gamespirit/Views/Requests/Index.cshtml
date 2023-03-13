@@ -1,7 +1,6 @@
 ﻿@{
-    ViewData["Title"] = "Players Page";
+    ViewData["Title"] = "Requests Page";
 }
-
 <link rel="stylesheet" href="~/css/Players.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.3/css/jquery.dataTables.min.css" />
@@ -11,7 +10,8 @@
     <div class="col-lg-5 justify-content-center">
         <div id="titleMessageBox" class="ro">
             <div class="col-sm text-center">
-                <h1 class="display-10">Players List
+                <h1 class="display-10">
+                    Requests
                 </h1>
             </div>
         </div>
@@ -24,8 +24,9 @@
             <tr>
                 <th>Profile Picture</th>
                 <th>Username</th>
-                <th>Total played hours</th>
-                <th>Join Date</th>
+                <th>Game picture</th>
+                <th>Game Title</th>
+                <th>Rent interval</th>
                 <th>Actions</th>
 
             </tr>
@@ -34,24 +35,23 @@
             <tr>
                 <td><img style="width:130px; border-radius:1000px" src="/Images/gof.jpg"></td>
                 <td>Asakari</td>
-                <td>420</td>
-                <td>23/06/2019</td>
+                <td><img style="width:200px; border-radius:60px" src="/Images/PoPWW.jpg"></td>
+                <td>Prince of Persia: Warrior Within</td>
+                <td>03/14/2022 - 06/14/2022</td>
                 <td>
-                    <a type="button" class="btn btn-dark fa fa-info" asp-controller="Players" asp-action="PlayerDetails"></a>
-                    <a class="btn btn-dark fa fa-pencil-square" asp-controller="Players" asp-action="EditPlayer"></a>
+                    <a class="btn btn-dark fa fa-check"></a>
                     <a class="btn btn-dark fa fa-trash"></a>
-
                 </td>
 
             </tr>
             <tr>
-                <td><img style="width:200px; border-radius:100px" src="/Images/masterChief.jpeg"></td>
-                <td>Azoth2001</td>
-                <td>1002</td>
-                <td>12/05/2022</td>
+                <td><img style="width:130px; border-radius:1000px" src="/Images/gof.jpg"></td>
+                <td>Asakari</td>
+                <td><img style="width:200px; border-radius:60px" src="/Images/Turok2.jpg"><</td>
+                <td>Turok 2</td>
+                <td>03/14/2022 - 06/14/2022</td>
                 <td>
-                    <a type="button" class="btn btn-dark fa fa-info" asp-controller="Players" asp-action="PlayerDetails"></a>
-                    <a class="btn btn-dark fa fa-pencil-square" asp-controller="Players" asp-action="EditPlayer"></a>
+                    <a class="btn btn-dark fa fa-check"></a>
                     <a class="btn btn-dark fa fa-trash"></a>
                 </td>
 
