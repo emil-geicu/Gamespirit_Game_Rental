@@ -1,0 +1,45 @@
+﻿@{
+    ViewData["Title"] = "Edit Game Details";
+}
+<link rel="stylesheet" href="~/css/Games.css">
+
+<div class="container dataTableContainer">
+    <div class="row">
+        <div class="col-auto contentHeaderContainer subTitle">
+            Edit Game details
+        </div>
+    </div>
+    <div class="row contentBodyContainer">
+        <form>
+            <div class="form-group">
+                <label class="text-white">Game Title</label>
+                <input type="text" class="form-control" placeholder="Enter Game Title">
+            </div>
+            <div class="form-group">
+                <label class="text-white">Genre</label>
+                <input type="text" class="form-control" placeholder="Enter Genre Details">
+            </div>
+            <div class="form-group">
+                <label class="text-white">Trailer URL</label>
+                <input type="text" class="form-control" placeholder="Enter Genre Trailer URL">
+            </div>
+            <div class="form-group">
+                <label class="text-white">Game Cover URL</label>
+                <input type="text" class="form-control" placeholder="Enter Gane Cover URL">
+            </div>
+            <div class="form-group add-margin-form">
+                <label class="text-white">Release Date</label>
+                <input type="date" id="date-dropdown" class="form-control form-input"  placeholder="Pick Date">
+            </div>
+            <div class="form-group">
+                <label class="text-white">Description</label>
+                <textarea class="form-control" rows="5"></textarea>
+            </div>
+        </form>
+    </div>
+    
+    <a type="submit" class="btn btn-success asp-controller="Games" asp-action="GameDetails">Save</a>
+    <a type="button" class="btn btn-danger" asp-controller="Games" asp-action="Index">Cancel</a>
+   
+</div>
+

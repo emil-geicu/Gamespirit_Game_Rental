@@ -1,0 +1,37 @@
+﻿@{
+    ViewData["Title"] = "Edit Player Details";
+}
+<link rel="stylesheet" href="~/css/Games.css">
+
+<div class="container dataTableContainer">
+    <div class="row">
+        <div class="col-auto contentHeaderContainer subTitle">
+            Edit Player details
+        </div>
+    </div>
+    <div class="row contentBodyContainer">
+        <form>
+            <div class="form-group">
+                <label class="text-white">Username</label>
+                <input type="text" class="form-control" placeholder="Enter Username">
+            </div>
+            <div class="form-group">
+                <label class="text-white">Gender</label>
+                <input type="text" class="form-control" placeholder="Enter Gender">
+            </div>
+            <div class="form-group add-margin-form">
+                <label class="text-white">Birthday</label>
+                <input type="date" id="date-dropdown" class="form-control form-input" placeholder="Pick Date">
+            </div>
+            <div class="form-group">
+                <label class="text-white">Description</label>
+                <textarea class="form-control" rows="5"></textarea>
+            </div>
+        </form>
+    </div>
+
+    <a type="submit" class="btn btn-success" asp-controller="Players" asp-action="PlayerDetails">Save</a>
+    <a type="button" class="btn btn-danger" asp-controller="Players" asp-action="Index">Cancel</a>
+
+</div>
+

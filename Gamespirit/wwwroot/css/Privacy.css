@@ -1,0 +1,151 @@
+﻿.carouselImage {
+    width: auto;
+    height: auto;
+    border-radius: 60px;
+}
+
+#carousel-slider1, #carousel-slider2 {
+    margin-right: 20px;
+    margin-left: 20px;
+}
+
+#titleMessageBox {
+    background-color: rgb(0, 0, 0,.7);
+    border-radius: 50px;
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 30px;
+    padding: 10px 10px 10px 10px;
+}
+
+h1 {
+    color: rgb(255, 255, 255);
+    font-family: 'Book Antiqua';
+}
+
+.carouselImage:hover {
+    opacity: 0.8;
+    transition: 0.8s;
+    box-shadow: 0 0 0 200px rgba(0, 0, 0, 0.9) inset;
+    transform: scale(1.1);
+}
+
+.container {
+    margin-bottom: 50px;
+}
+
+/* Rounded Table */
+.zui-table {
+    border: solid 1px #000000;
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    color: white
+}
+
+    .zui-table thead th {
+        background-color: white;
+        border: solid 1px #000000;
+        color: white;
+        padding: 10px;
+        text-align: left;
+    }
+
+    .zui-table tbody td {
+        border: none;
+        color: white;
+        padding: 10px;
+        font-family: Arial;
+    }
+
+.zui-table-rounded {
+    border: transparent;
+}
+
+    .zui-table-rounded thead th {
+        background-color: black;
+        font-family: Arial;
+        color: white;
+    }
+
+        .zui-table-rounded thead th:first-child {
+            border-radius: 20px 0 0 0;
+        }
+
+        .zui-table-rounded thead th:last-child {
+            border-radius: 0 20px 0 0;
+        }
+
+    .zui-table-rounded tbody td {
+        border: none;
+        border-top: solid 1px #000000;
+        background-color: #275f61;
+    }
+
+    .zui-table-rounded tbody tr:last-child td:first-child {
+        border-radius: 0 0 0 20px;
+    }
+
+    .zui-table-rounded tbody tr:last-child td:last-child {
+        border-radius: 0 0 20px 0;
+    }
+
+.dataTableContainer {
+    background-color: rgba(36, 161, 189,.7);
+    border-radius: 20px;
+    padding: 20px 20px 20px 20px;
+}
+
+.contentHeaderContainer {
+    background-color: rgb(0, 56, 74,.9);
+    border-radius: 20px;
+    padding: 20px 20px 20px 20px;
+    margin-bottom: 10px;
+}
+
+.contentBodyContainer {
+    background-color: rgb(0, 56, 74,.9);
+    border-radius: 20px;
+    padding: 20px 20px 20px 20px;
+    margin-left: 1px;
+}
+
+.detailedImg {
+    width: 100%;
+    border-radius: 60px;
+    padding: 10px 10px 10px 10px;
+}
+
+.title {
+    font-size: 60px;
+    color: white;
+    font-family: 'Book Antiqua';
+}
+
+.subTitle {
+    font-size: 30px;
+    color: white;
+    font-family: 'Book Antiqua';
+}
+
+.bodyText {
+    font-size: 20px;
+    color: white;
+    font-family: 'Book Antiqua';
+}
+
+iframe {
+    width: 1280px;
+    height: 720px;
+}
+
+#rentButton {
+    margin-bottom: 10px;
+}
+
+#profilePicture {
+    width: 100%;
+    margin-bottom: 10px;
+    border-radius: 60px;
+}
