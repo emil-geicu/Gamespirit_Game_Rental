@@ -1,85 +1,64 @@
-﻿@{
-    ViewData["Title"] = "Games Page";
+﻿@model List<GameViewModel>
+@{
+	ViewData["Title"] = "Games Page";
 }
 
 <!-- HTML -->
 <head>
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.css" />
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="~/css/Games.css">
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.css" />
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.css" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="~/css/Games.css">
 </head>
 
 
 <div class="container">
-    <div class="row justify-content-center">
-        <div class="col-lg-5 justify-content-center">
-            <div id="titleMessageBox" class="ro">
-                <div class="col-sm text-center">
-                    <h1 class="display-10">New Games</h1>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-5 justify-content-center">
-            <div id="titleMessageBox" class="ro">
-                <div class="col-sm text-center">
-                    <h1 class="display-10">Top Played Games</h1>
-                </div>
-            </div>
-        </div>
-     
-    </div>
-    <div class="row justify-content-center">
-        <div class="col-lg-5">
-            <div id="carousel-slider1">
-                <div>
-                    <a asp-controller="Games" asp-action="GameDetails">
-                        <img class="d-block w-100 carouselImage" src="/Images/Turok2.jpg" alt="First slide">
-                    </a>
-                </div>
-                <div>
-                    <a asp-controller="Games" asp-action="GameDetails">
-                        <img class="d-block w-100 carouselImage" src="/Images/LoKSR.jpg" alt="Third slide">
-                    </a>
-                </div>
-                <div>
-                    <a asp-controller="Games" asp-action="GameDetails">
-                        <img class="d-block w-100 carouselImage" src="/Images/PoPWW.jpg" alt="Third slide">
-                    </a>
-                </div>
-                <div>
-                    <a asp-controller="Games" asp-action="GameDetails">
-                        <img class="d-block w-100 carouselImage" src="/Images/ResidentEvil.jpg" alt="Third slide">
-                    </a>
-                </div>
-             </div>
-        </div>
-        <div class="col-lg-5">
-            <div id="carousel-slider2">
-                <div>
-                    <a asp-controller="Games" asp-action="GameDetails">
-                        <img class="d-block w-100 carouselImage" src="/Images/PoPWW.jpg" alt="First slide">
-                    </a>
-                </div>
-                <div>
-                    <a asp-controller="Games" asp-action="GameDetails">
-                        <img class="d-block w-100 carouselImage" src="/Images/LoKSR.jpg" alt="Third slide">
-                    </a>
-                </div>
-                <div>
-                    <a asp-controller="Games" asp-action="GameDetails">
-                        <img class="d-block w-100 carouselImage" src="/Images/Turok2.jpg" alt="Third slide">
-                     </a>
-                </div>
-                <div>
-                    <a asp-controller="Games" asp-action="GameDetails">
-                        <img class="d-block w-100 carouselImage" src="/Images/ResidentEvil.jpg" alt="Third slide">
-                    </a>
+	<div class="row justify-content-center">
+		<div class="col-lg-5 justify-content-center">
+			<div id="titleMessageBox" class="ro">
+				<div class="col-sm text-center">
+					<h1 class="display-10">New Games</h1>
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-5 justify-content-center">
+			<div id="titleMessageBox" class="ro">
+				<div class="col-sm text-center">
+					<h1 class="display-10">Top Played Games</h1>
+				</div>
+			</div>
+		</div>
 
-                </div>
-             </div>
-        </div>
-    </div>
+	</div>
+	<div class="row justify-content-center">
+		<div class="col-lg-5">
+			<div id="carousel-slider1">
+				@foreach(var game in Model)
+				{
+				<div>
+						<a asp-controller="Games" asp-action="GameDetails" asp-route-id="@game.Id">
+						<img class="d-block w-100 carouselImage" src=@game.CoverImageUrl alt="First slide">
+					</a>
+				</div>
+				}
+			</div>
+		</div>
+		<div class="col-lg-5">
+			<div id="carousel-slider2">
+				@foreach(var game in Model)
+				{
+					if(game.Genre.Equals("Horror"))
+					{	
+						<div>
+								<a asp-controller="Games" asp-action="GameDetails" asp-route-id="@game.Id">
+								<img class="d-block w-100 carouselImage" src=@game.CoverImageUrl alt="First slide">
+							</a>
+						</div>
+					}
+				}
+			</div>
+		</div>
+	</div>
 </div>
 
 <!-- Calling jQuery -->
@@ -90,78 +69,62 @@
 <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 
 <script>
-    for(let i=1;i<=2;i++){
-        $("#carousel-slider"+i).slick({
-            arrows: true,
-            infinite: true,
-            slidesToShow: 1,
-            slidesToScroll: 1,
-            autoplay: true,
-            autoplaySpeed: 3000,
-            mobileFirst: true
-        });
-    }
- </script>
+	for (let i = 1; i <= 2; i++) {
+		$("#carousel-slider" + i).slick({
+			arrows: true,
+			infinite: true,
+			slidesToShow: 1,
+			slidesToScroll: 1,
+			autoplay: true,
+			autoplaySpeed: 3000,
+			mobileFirst: true
+		});
+	}
+</script>
 
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.3/css/jquery.dataTables.min.css" />
 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 
+<p>
+	<a type="button" class="btn btn-dark" asp-action="AddGame">Add New Game</a>
+</p>
+
 <div class="dataTableContainer">
-    <table id="GamesTable" class="display table-dark table-hover text-center zui-table zui-table-rounded">
-        <thead>
-            <tr>
-                <th></th>
-                <th>Title</th>
-                <th>Genre</th>
-                <th>Release Date</th>
-                <th>Actions</th>
-     
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td><img style="width:200px; border-radius:60px" src="/Images/PoPWW.jpg"></td>
-                <td>Prince of Persia: Warrior Within</td>
-                <td>Action/Adventure</td>
-                <td>2005</td>
-                <td>
-                    <a type="button" class="btn btn-dark fa fa-info" asp-controller="Games" asp-action="GameDetails"></a>
-                    <a type="button" class="btn btn-dark fa fa-pencil-square" asp-controller="Games" asp-action="EditGame"></a>
-                    <a class="btn btn-dark fa fa-trash"></a>
-                    
-                </td>
-          
-            </tr>
-            <tr>
-                <td><img style="width:200px; border-radius:60px" src="/Images/LoKSR.jpg"></td>
-                <td>Legacy of Kain: Soul Reaver</td>
-                <td>Action/Horror/Fantasy</td>
-                <td>2004</td>
-                <td>
-                    <a type="button" class="btn btn-dark fa fa-info" asp-controller="Games" asp-action="GameDetails"></a>
-                    <a type="button" class="btn btn-dark fa fa-pencil-square" asp-controller="Games" asp-action="EditGame"></a>
-                    <a class="btn btn-dark fa fa-trash"></a>
-                </td>
-          
-            </tr>
-            <tr>
-                <td><img style="width:200px; border-radius:60px" src="/Images/Turok2.jpg"></td>
-                <td>Turok 2</td>
-                <td>FPS</td>
-                <td>1999</td>
-                <td>
-                    <a type="button" class="btn btn-dark fa fa-info" asp-controller="Games" asp-action="GameDetails"></a>
-                    <a type="button" class="btn btn-dark fa fa-pencil-square" asp-controller="Games" asp-action="EditGame"></a>
-                    <a class="btn btn-dark fa fa-trash"></a>
-                </td>
-         
-            </tr>
-        </tbody>
-    </table>
+	<table id="GamesTable" class="display table-dark table-hover text-center zui-table zui-table-rounded">
+		<thead>
+			<tr>
+				<th></th>
+				<th>Title</th>
+				<th>Genre</th>
+				<th>Release Date</th>
+				<th>Actions</th>
+
+			</tr>
+		</thead>
+		<tbody>
+
+			@foreach (var game in Model)
+			{
+				<tr>
+					<td><img style="width:200px; border-radius:60px" src=@game.CoverImageUrl></td>
+					<td>@game.Title</td>
+					<td>@game.Genre</td>
+					<td>@game.ReleaseDate.ToString("MM/dd/yyyy")</td>
+					<td>
+						<a type="button" class="btn btn-dark fa fa-info" asp-controller="Games" asp-action="GameDetails" asp-route-id="@game.Id"></a>
+						<a type="button" class="btn btn-dark fa fa-pencil-square" asp-controller="Games" asp-action="EditGame" asp-route-id="@game.Id"></a>
+						<a type="button" class="btn btn-dark fa fa-trash" asp-controller="Games" asp-action="DeleteGame" asp-route-id="@game.Id"></a>
+
+					</td>
+
+				</tr>
+			}
+		</tbody>
+	</table>
 </div>
 <script>
-    $(document).ready(function () {
-        $('#GamesTable').DataTable();
-    });
+	$(document).ready(function () {
+		$('#GamesTable').DataTable();
+	});
 </script>
 <script src="https://cdn.datatables.net/1.13.3/js/jquery.dataTables.min.js">

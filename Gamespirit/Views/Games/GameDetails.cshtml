@@ -1,4 +1,5 @@
-﻿@{
+﻿@model GameViewModel
+@{
     ViewData["Title"] = "Games Details Page";
 }
 <link rel="stylesheet" href="~/css/Games.css">
@@ -7,7 +8,7 @@
     <div class="row justify-content-start">
         <div class="col-4">
             <div class="row">
-                <img class="detailedImg" src="/Images/LoKSR.jpg">
+                <img class="detailedImg" src=@Model.CoverImageUrl>
             </div>
             <div class="row-lg">
                 <a id="rentButton" class="btn btn-dark btn-lg" role="button"> Rent Game</a>
@@ -15,23 +16,19 @@
            
         </div>
         <div class="col-sm-8 contentHeaderContainer">
-            <p class="title">Legacy of Kain: Soul Reaver </p>
+            <p class="title">@Model.Title</p>
             <br />
-            <p class="subTitle">Genre: Fantasy/Horror</p>
+            <p class="subTitle">Genre: @Model.Genre</p>
         </div>
     </div>
     <div class="row contentBodyContainer align-content-xxl-center">
         <p class="subTitle"> Description</p>
         <br />
         <p class="bodyText">
-            Legacy of Kain: Soul Reaver is an action-adventure video game developed by Crystal Dynamics and published by Eidos Interactive. It was released for the PlayStation and Microsoft Windows in 1999 and for the Dreamcast in 2000. As the second game in the Legacy of Kain series, Soul Reaver is the sequel to Blood Omen: Legacy of Kain. Soul Reaver was followed by three games, one of which, Soul Reaver 2, is a direct sequel.
-
-            Taking place 1500 years after the events of Blood Omen, Soul Reaver chronicles the journey of the vampire-turned-wraith Raziel, lieutenant to the vampire lord Kain. Raziel is killed by Kain, but is revived by The Elder God to become his "soul reaver" and to exact revenge. Raziel shares this title with Kain's sword, the Soul Reaver, which he acquires during the game.
-
-            Crystal Dynamics began development of the game in 1997, but a deteriorating relationship with Silicon Knights, who had developed Blood Omen, created legal problems. This and other delays forced material originally planned for Soul Reaver to be instead released with later games of the series. Soul Reaver was generally well received by critics and praised for its intriguing gothic story and high-quality graphics. However, the game was criticized for simple and repetitive gameplay and an unsatisfying climax. By 2001, the game sold 1.5 million copies worldwide.
+            @Model.Description    
         </p>
         <br />
         <p class="subTitle">Trailer</p>
-        <iframe src="https://www.youtube.com/embed/pXdIGNea2ZI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        <iframe src=@Model.TrailerUrl title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
     </div>
 </div>

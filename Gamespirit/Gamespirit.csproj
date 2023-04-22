@@ -16,10 +16,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Data\DbModels\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <None Include="wwwroot\Images\HomeBackgroundImage.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

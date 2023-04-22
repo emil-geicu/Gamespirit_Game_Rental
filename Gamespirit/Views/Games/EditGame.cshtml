@@ -1,4 +1,6 @@
-﻿@{
+﻿@model GameViewModel
+
+@{
     ViewData["Title"] = "Edit Game Details";
 }
 <link rel="stylesheet" href="~/css/Games.css">
@@ -6,40 +8,54 @@
 <div class="container dataTableContainer">
     <div class="row">
         <div class="col-auto contentHeaderContainer subTitle">
-            Edit Game details
+            Edit Game
         </div>
     </div>
     <div class="row contentBodyContainer">
-        <form>
-            <div class="form-group">
-                <label class="text-white">Game Title</label>
-                <input type="text" class="form-control" placeholder="Enter Game Title">
+        <form asp-controller="Games" asp-action="EditExistingGame" method="post">
+            <input type="text" class="form-control" asp-for="Id" hidden>
+            <div class="form-group add-margin-form">
+                <label class="text-white" asp-for="Title">Title</label>
+                <input type="text" class="form-control" asp-for="Title" placeholder="Title">
+                <span asp-validation-for="Title" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label class="text-white">Genre</label>
-                <input type="text" class="form-control" placeholder="Enter Genre Details">
+
+            <div class="form-group add-margin-form">
+                <label class="text-white" asp-for="Description">Description</label>
+                <textarea class="form-control" rows="5" asp-for="Description" placeholder="Description"></textarea>
+                <span asp-validation-for="Description" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label class="text-white">Trailer URL</label>
-                <input type="text" class="form-control" placeholder="Enter Genre Trailer URL">
+
+            <div class="form-group add-margin-form">
+                <label class="text-white" asp-for="Genre">Genre</label>
+                <input type="text" class="form-control" asp-for="Genre" placeholder="Genre">
+                <span asp-validation-for="Genre" class="text-danger"></span>
             </div>
+
             <div class="form-group">
-                <label class="text-white">Game Cover URL</label>
-                <input type="text" class="form-control" placeholder="Enter Gane Cover URL">
+                <label class="text-white" asp-for="ReleaseDate" class="control-label"></label>
+                <input asp-for="ReleaseDate" class="form-control" />
+                <span asp-validation-for="ReleaseDate" class="text-danger"></span>
+            </div>
+
+            <div class="form-group add-margin-form">
+                <label class="text-white" asp-for="CoverImageUrl">CoverImageUrl</label>
+                <input type="text" class="form-control" asp-for="CoverImageUrl" placeholder="CoverImageUrl">
+                <span asp-validation-for="CoverImageUrl" class="text-danger"></span>
             </div>
             <div class="form-group add-margin-form">
-                <label class="text-white">Release Date</label>
-                <input type="date" id="date-dropdown" class="form-control form-input"  placeholder="Pick Date">
+                <label class="text-white" asp-for="TrailerUrl">TrailerUrl</label>
+                <input type="text" class="form-control" asp-for="TrailerUrl" placeholder="TrailerUrl">
+                <span asp-validation-for="TrailerUrl" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label class="text-white">Description</label>
-                <textarea class="form-control" rows="5"></textarea>
+
+            <div class="d-flex justify-content-center align-items-center m-2">
+                <button type="submit" class="btn btn-dark me-2">Save Changes</button>
+
+                <a type="button" class="btn btn-dark" asp-controller="Games" asp-action="Index">Cancel</a>
             </div>
+
+
         </form>
     </div>
-    
-    <a type="submit" class="btn btn-success asp-controller="Games" asp-action="GameDetails">Save</a>
-    <a type="button" class="btn btn-danger" asp-controller="Games" asp-action="Index">Cancel</a>
-   
 </div>
-

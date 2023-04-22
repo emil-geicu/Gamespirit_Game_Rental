@@ -1,4 +1,8 @@
 using Gamespirit.Data;
+using Gamespirit.Repositories;
+using Gamespirit.Repositories.Interfaces;
+using Gamespirit.Services;
+using Gamespirit.Services.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
 namespace Gamespirit
@@ -11,6 +15,10 @@ namespace Gamespirit
 
             var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
             builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(connectionString));
+
+            builder.Services.AddScoped<IGameRepository, GameRepository>();
+            builder.Services.AddScoped<IGameService, GameService>();
+            builder.Services.AddScoped<IRepositoryWrapper, RepositoryWrapper>();
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();

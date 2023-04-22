@@ -1,0 +1,61 @@
+﻿@model GameViewModel
+
+@{
+    ViewData["Title"] = "AddGame";
+}
+<link rel="stylesheet" href="~/css/Games.css">
+
+<div class="container dataTableContainer">
+    <div class="row">
+        <div class="col-auto contentHeaderContainer subTitle">
+            Create Game
+        </div>
+    </div>
+    <div class="row contentBodyContainer">
+        <form asp-controller="Games" asp-action="AddNewGame" method="post">
+        
+        <div class="form-group add-margin-form">
+            <label class="text-white" asp-for="Title">Title</label>
+            <input type="text" class="form-control" asp-for="Title" placeholder="Title">
+            <span asp-validation-for="Title" class="text-danger"></span>
+        </div>
+
+        <div class="form-group add-margin-form">
+            <label class="text-white" asp-for="Description">Description</label>
+            <textarea class="form-control" rows="5" asp-for="Description" placeholder="Description"></textarea>
+            <span asp-validation-for="Description" class="text-danger"></span>
+        </div>
+
+        <div class="form-group add-margin-form">
+            <label class="text-white" asp-for="Genre">Genre</label>
+            <input type="text" class="form-control" asp-for="Genre" placeholder="Genre">
+            <span asp-validation-for="Genre" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label class="text-white" asp-for="ReleaseDate" class="control-label"></label>
+            <input asp-for="ReleaseDate" class="form-control" />
+            <span asp-validation-for="ReleaseDate" class="text-danger"></span>
+        </div>
+
+        <div class="form-group add-margin-form">
+                <label class="text-white" asp-for="CoverImageUrl">CoverImageUrl</label>
+            <input type="text" class="form-control" asp-for="CoverImageUrl" placeholder="CoverImageUrl">
+            <span asp-validation-for="CoverImageUrl" class="text-danger"></span>
+        </div>
+        <div class="form-group add-margin-form">
+                <label class="text-white" asp-for="TrailerUrl">TrailerUrl</label>
+            <input type="text" class="form-control" asp-for="TrailerUrl" placeholder="TrailerUrl">
+            <span asp-validation-for="TrailerUrl" class="text-danger"></span>
+        </div>
+
+        <div class="d-flex justify-content-center align-items-center m-2">
+            <button type="submit" class="btn btn-dark me-2">Add Game</button>
+
+            <a type="button" class="btn btn-dark" asp-controller="Games" asp-action="Index">Cancel</a>
+        </div>
+
+
+</form>
+    </div>
+</div>
