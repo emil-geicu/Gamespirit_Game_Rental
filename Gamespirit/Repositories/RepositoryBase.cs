@@ -5,7 +5,7 @@ namespace Gamespirit.Repositories
 {
     public abstract class RepositoryBase<T> : IRepositoryBase<T> where T : class
     {
-        private ApplicationDbContext _dbContext { get; set; }
+        protected ApplicationDbContext _dbContext { get; set; }
 
         public RepositoryBase(ApplicationDbContext dbContext)
         {
@@ -25,6 +25,15 @@ namespace Gamespirit.Repositories
         public void Delete(T entity)
         {
             _dbContext.Set<T>().Remove(entity);
+        }
+        public T Get(Guid id)
+        {
+            return _dbContext.Set<T>().Find(id);
+        }
+
+        public IEnumerable<T> GetAll()
+        {
+            return _dbContext.Set<T>().ToList();
         }
     }
 }
