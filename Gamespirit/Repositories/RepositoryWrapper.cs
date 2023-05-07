@@ -7,6 +7,7 @@ namespace Gamespirit.Repositories
     {
         private ApplicationDbContext _dbContext;
         private IGameRepository? _gameRepository;
+        private IUserRepository? _userRepository;
 
         public IGameRepository GameRepository
         {
@@ -20,8 +21,19 @@ namespace Gamespirit.Repositories
                 return _gameRepository;
             }
         }
+		public IUserRepository UserRepository
+		{
+			get
+			{
+				if (_userRepository == null)
+				{
+					_userRepository = new UserRepository(_dbContext);
+				}
 
-        public RepositoryWrapper(ApplicationDbContext dbContext)
+				return _userRepository;
+			}
+		}
+		public RepositoryWrapper(ApplicationDbContext dbContext)
         {
             _dbContext = dbContext;
         }

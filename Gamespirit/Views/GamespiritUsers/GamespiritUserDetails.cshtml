@@ -1,0 +1,69 @@
+﻿@model Gamespirit.Areas.Identity.Data.GamespiritUser
+@{
+    ViewData["Title"] = "Players Details Page";
+}
+<link rel="stylesheet" href="~/css/Players.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.3/css/jquery.dataTables.min.css" />
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+
+<div class="container">
+    <div class="row">
+
+    </div>
+    <div class="row justify-content-start">
+        <div class="col-4">
+            <div class="row">
+                <img id="profilePicture" src="@Model.ProfileImageUrl">
+            </div>
+
+        </div>
+        <div class="col-sm-8 contentHeaderContainer">
+            <p class="title">@Model.UserName </p>
+            <br />
+            <p class="subTitle">@Model.StatusDescription</p>
+        </div>
+    </div>
+    <div class="row contentBodyContainer align-content-xxl-center">
+       <p class="subTitle">Rent history</p>
+        <div class="dataTableContainer">
+            <table id="GamesTable" class="display table-dark table-hover text-center zui-table zui-table-rounded">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Title</th>
+                        <th>Genre</th>
+                        <th>Total hours played</th>
+                        <th>Last played on</th>
+                        <th>Actions</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach(var game in Model.RentHistory)
+                    {
+                        <tr>
+                            <td><img style="width:200px; border-radius:60px" src="@game.Game.CoverImageUrl"></td>
+                            <td>@game.Game.Title</td>
+                            <td>@game.Game.Genre</td>
+                            <td>123</td>
+                            <td>@game.Game.ReleaseDate</td>
+                            <td>
+                                <a type="button" class="btn btn-dark fa fa-info" asp-controller="Games" asp-action="GameDetails"></a>
+                                <a class="btn btn-dark fa fa-trash"></a>
+
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        $('#GamesTable').DataTable();
+    });
+</script>
+<script src="https://cdn.datatables.net/1.13.3/js/jquery.dataTables.min.js">
