@@ -2,8 +2,7 @@
 using Gamespirit.Models;
 using Gamespirit.Repositories.Interfaces;
 using Gamespirit.Services.Interfaces;
-using Microsoft.EntityFrameworkCore;
-
+using System.Security.Claims;
 namespace Gamespirit.Services
 {
     public class GameService : IGameService

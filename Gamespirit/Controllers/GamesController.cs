@@ -17,7 +17,7 @@ namespace Gamespirit.Controllers
 
         public IActionResult Index()
         {
-            return View(_gameService.GetAllGames());
+			return View(_gameService.GetAllGames());
         }
 
         public IActionResult GameDetails(Guid id)

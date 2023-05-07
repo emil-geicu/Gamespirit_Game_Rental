@@ -1,4 +1,5 @@
-﻿@{
+﻿@model List<Gamespirit.Areas.Identity.Data.GamespiritUser>
+@{
     ViewData["Title"] = "Players Page";
 }
 
@@ -24,38 +25,27 @@
             <tr>
                 <th>Profile Picture</th>
                 <th>Username</th>
-                <th>Total played hours</th>
                 <th>Join Date</th>
                 <th>Actions</th>
 
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td><img style="width:130px; border-radius:1000px" src="/Images/gof.jpg"></td>
-                <td>Asakari</td>
-                <td>420</td>
-                <td>23/06/2019</td>
-                <td>
-                    <a type="button" class="btn btn-dark fa fa-info" asp-controller="Players" asp-action="PlayerDetails"></a>
-                    <a class="btn btn-dark fa fa-pencil-square" asp-controller="Players" asp-action="EditPlayer"></a>
-                    <a class="btn btn-dark fa fa-trash"></a>
+            @foreach(var user in Model)
+            {
+                <tr>
+                    <td><img style="width:130px; border-radius:1000px" src="@user.ProfileImageUrl"></td>
+                    <td>@user.UserName</td>
+                    <td>@user.JoinDate</td>
+                    <td>
+                        <a type="button" class="btn btn-dark fa fa-info" asp-controller="GamespiritUsers" asp-action="GamespiritUserDetails" asp-route-id="@user.Id"></a>
+                        <a class="btn btn-dark fa fa-pencil-square" asp-controller="GamespiritUsers" asp-action="EditGamespiritUser"></a>
+                        <a class="btn btn-dark fa fa-trash" asp-controller="GamespiritUsers" asp-action="DeleteUser" asp-route-id="@user.Id"></a>
 
-                </td>
+                    </td>
 
-            </tr>
-            <tr>
-                <td><img style="width:200px; border-radius:100px" src="/Images/masterChief.jpeg"></td>
-                <td>Azoth2001</td>
-                <td>1002</td>
-                <td>12/05/2022</td>
-                <td>
-                    <a type="button" class="btn btn-dark fa fa-info" asp-controller="Players" asp-action="PlayerDetails"></a>
-                    <a class="btn btn-dark fa fa-pencil-square" asp-controller="Players" asp-action="EditPlayer"></a>
-                    <a class="btn btn-dark fa fa-trash"></a>
-                </td>
-
-            </tr>
+                </tr>
+            }
         </tbody>
     </table>
 </div>
