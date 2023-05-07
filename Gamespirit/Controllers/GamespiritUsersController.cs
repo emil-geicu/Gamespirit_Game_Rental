@@ -1,4 +1,6 @@
-﻿using Gamespirit.Services;
+﻿using Gamespirit.Areas.Identity.Data;
+using Gamespirit.Models;
+using Gamespirit.Services;
 using Gamespirit.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
@@ -32,9 +34,34 @@ namespace Gamespirit.Controllers
 
             return View(user);
         }
-        public IActionResult EditGamespiritUser()
+        public IActionResult EditGamespiritUser(Guid id)
         {
-            return View();
+            var user = _userService.GetUser(id);
+
+            if (user == null)
+            {
+                return RedirectToAction("Index");
+            }
+
+            return View(user);
+        }
+
+        [HttpPost]
+        public IActionResult EditExistinguserr(GamespiritUser user)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View("EditGame");
+            }
+
+            _userService.EditUser(user);
+            return RedirectToAction(nameof(Index));
+        }
+
+        public IActionResult DeleteUser(Guid id)
+        {
+            _userService.DeleteUser(id);
+            return RedirectToAction(nameof(Index));
         }
     }
 }
