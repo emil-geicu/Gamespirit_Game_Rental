@@ -1,5 +1,8 @@
-﻿using Gamespirit.Models;
+﻿using DigitalSchoolWorkspace.Services;
+using Gamespirit.Areas.Identity.Data;
+using Gamespirit.Models;
 using Gamespirit.Services.Interfaces;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Gamespirit.Controllers
@@ -8,11 +11,15 @@ namespace Gamespirit.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private IGameService _gameService;
+		private IRequestService _requestService;
+		private UserManager<GamespiritUser> _userManager;
 
-        public GamesController(ILogger<HomeController> logger, IGameService gameService)
+		public GamesController(ILogger<HomeController> logger, IGameService gameService, UserManager<GamespiritUser> userManager, IRequestService requestService)
         {
             _logger = logger;
             _gameService = gameService;
+            _userManager = userManager;
+            _requestService = requestService;   
         }
 
         public IActionResult Index()
@@ -59,7 +66,13 @@ namespace Gamespirit.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        public IActionResult EditGame(Guid id)
+		public IActionResult RequestAccess(Guid id)
+        {
+			var user = _userManager.GetUserAsync(User).Result;
+			_requestService.AddUserRequest(user.Id, id);
+			return RedirectToAction(nameof(Index));
+		}
+		public IActionResult EditGame(Guid id)
         {
             var game = _gameService.GetGame(id);
 

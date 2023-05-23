@@ -33,24 +33,24 @@
 	<div class="row justify-content-center">
 		<div class="col-lg-5">
 			<div id="carousel-slider1">
-				@foreach(var game in Model)
+				@foreach (var game in Model)
 				{
-				<div>
+					<div>
 						<a asp-controller="Games" asp-action="GameDetails" asp-route-id="@game.Id">
-						<img class="d-block w-100 carouselImage" src=@game.CoverImageUrl alt="First slide">
-					</a>
-				</div>
+							<img class="d-block w-100 carouselImage" src=@game.CoverImageUrl alt="First slide">
+						</a>
+					</div>
 				}
 			</div>
 		</div>
 		<div class="col-lg-5">
 			<div id="carousel-slider2">
-				@foreach(var game in Model)
+				@foreach (var game in Model)
 				{
-					if(game.Genre.Equals("Horror"))
-					{	
+					if (game.Genre.Equals("Horror"))
+					{
 						<div>
-								<a asp-controller="Games" asp-action="GameDetails" asp-route-id="@game.Id">
+							<a asp-controller="Games" asp-action="GameDetails" asp-route-id="@game.Id">
 								<img class="d-block w-100 carouselImage" src=@game.CoverImageUrl alt="First slide">
 							</a>
 						</div>
@@ -84,10 +84,12 @@
 
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.3/css/jquery.dataTables.min.css" />
 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-
-<p>
-	<a type="button" class="btn btn-dark" asp-action="AddGame">Add New Game</a>
-</p>
+@if (User.IsInRole("Admin"))
+{
+	<p>
+		<a type="button" class="btn btn-dark" asp-action="AddGame">Add New Game</a>
+	</p>
+}
 
 <div class="dataTableContainer">
 	<table id="GamesTable" class="display table-dark table-hover text-center zui-table zui-table-rounded">
@@ -112,9 +114,11 @@
 					<td>@game.ReleaseDate.ToString("MM/dd/yyyy")</td>
 					<td>
 						<a type="button" class="btn btn-dark fa fa-info" asp-controller="Games" asp-action="GameDetails" asp-route-id="@game.Id"></a>
-						<a type="button" class="btn btn-dark fa fa-pencil-square" asp-controller="Games" asp-action="EditGame" asp-route-id="@game.Id"></a>
-						<a type="button" class="btn btn-dark fa fa-trash" asp-controller="Games" asp-action="DeleteGame" asp-route-id="@game.Id"></a>
-
+						@if (User.IsInRole("Admin"))
+						{
+							<a type="button" class="btn btn-dark fa fa-pencil-square" asp-controller="Games" asp-action="EditGame" asp-route-id="@game.Id"></a>
+							<a type="button" class="btn btn-dark fa fa-trash" asp-controller="Games" asp-action="DeleteGame" asp-route-id="@game.Id"></a>
+						}
 					</td>
 
 				</tr>

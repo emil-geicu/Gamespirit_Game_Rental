@@ -1,7 +1,9 @@
-﻿using Gamespirit.Areas.Identity.Data;
+﻿using DigitalSchoolWorkspace.Services;
+using Gamespirit.Areas.Identity.Data;
 using Gamespirit.Models;
 using Gamespirit.Services;
 using Gamespirit.Services.Interfaces;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Gamespirit.Controllers
@@ -10,11 +12,15 @@ namespace Gamespirit.Controllers
     {
         private readonly ILogger<HomeController> _logger;
 		private IUserService _userService;
+		private IRentHistoryService _rentHistoryService;
+		private UserManager<GamespiritUser> _userManager;
 
-		public GamespiritUsersController(ILogger<HomeController> logger,IUserService userService)
+		public GamespiritUsersController(ILogger<HomeController> logger,IUserService userService, IRentHistoryService rentHistoryService, UserManager<GamespiritUser> userManager)
         {
             _logger = logger;
             _userService = userService;
+            _rentHistoryService = rentHistoryService;
+            _userManager = userManager;
         }
 
         public IActionResult Index()
@@ -63,5 +69,13 @@ namespace Gamespirit.Controllers
             _userService.DeleteUser(id);
             return RedirectToAction(nameof(Index));
         }
-    }
+
+
+		public IActionResult DeleteRentHistory(Guid id)
+        {
+			var user = _userManager.GetUserAsync(User).Result;
+			_rentHistoryService.DeleteRent(id, user.Id);
+			return RedirectToAction(nameof(Index));
+		}
+	}
 }

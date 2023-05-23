@@ -1,5 +1,6 @@
-﻿@{
-    ViewData["Title"] = "Requests Page";
+﻿@model IEnumerable<Gamespirit.Data.DbModels.PlayerGameRequest>
+@{
+	ViewData["Title"] = "Requests Page";
 }
 <link rel="stylesheet" href="~/css/Players.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -7,61 +8,51 @@
 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 
 <div class="row justify-content-center">
-    <div class="col-lg-5 justify-content-center">
-        <div id="titleMessageBox" class="ro">
-            <div class="col-sm text-center">
-                <h1 class="display-10">
-                    Requests
-                </h1>
-            </div>
-        </div>
-    </div>
+	<div class="col-lg-5 justify-content-center">
+		<div id="titleMessageBox" class="ro">
+			<div class="col-sm text-center">
+				<h1 class="display-10">
+					Requests
+				</h1>
+			</div>
+		</div>
+	</div>
 </div>
 
 <div class="dataTableContainer">
-    <table id="GamesTable" class="display table-dark table-hover text-center zui-table zui-table-rounded">
-        <thead>
-            <tr>
-                <th>Profile Picture</th>
-                <th>Username</th>
-                <th>Game picture</th>
-                <th>Game Title</th>
-                <th>Rent interval</th>
-                <th>Actions</th>
+	<table id="GamesTable" class="display table-dark table-hover text-center zui-table zui-table-rounded">
+		<thead>
+			<tr>
+				<th>Profile Picture</th>
+				<th>Username</th>
+				<th>Game picture</th>
+				<th>Game Title</th>
+				<th>Rent interval</th>
+				<th>Actions</th>
 
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td><img style="width:130px; border-radius:1000px" src="/Images/gof.jpg"></td>
-                <td>Asakari</td>
-                <td><img style="width:200px; border-radius:60px" src="/Images/PoPWW.jpg"></td>
-                <td>Prince of Persia: Warrior Within</td>
-                <td>03/14/2022 - 06/14/2022</td>
-                <td>
-                    <a class="btn btn-dark fa fa-check"></a>
-                    <a class="btn btn-dark fa fa-trash"></a>
-                </td>
-
-            </tr>
-            <tr>
-                <td><img style="width:130px; border-radius:1000px" src="/Images/gof.jpg"></td>
-                <td>Asakari</td>
-                <td><img style="width:200px; border-radius:60px" src="/Images/Turok2.jpg"><</td>
-                <td>Turok 2</td>
-                <td>03/14/2022 - 06/14/2022</td>
-                <td>
-                    <a class="btn btn-dark fa fa-check"></a>
-                    <a class="btn btn-dark fa fa-trash"></a>
-                </td>
-
-            </tr>
-        </tbody>
-    </table>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach (var item in Model)
+			{
+				<tr>
+					<td><img style="width:130px; border-radius:1000px" src=@item.GamespiritUser.ProfileImageUrl></td>
+					<td>@item.GamespiritUser.UserName</td>
+					<td><img style="width:200px; border-radius:60px" src=@item.Game.CoverImageUrl></td>
+					<td>@item.Game.Title</td>
+					<td>03/14/2022 - 06/14/2022</td>
+					<td>
+						<a class="btn btn-dark fa fa-check" asp-action="Aprove" asp-route-gameId="@item.GameId" asp-route-userId="@item.GamespiritUserId"></a>
+						<a class="btn btn-dark fa fa-trash" asp-action="Delete" asp-route-id="@item.GameId"></a>
+					</td>
+				</tr>
+			}
+		</tbody>
+	</table>
 </div>
 <script>
-    $(document).ready(function () {
-        $('#GamesTable').DataTable();
-    });
+	$(document).ready(function () {
+		$('#GamesTable').DataTable();
+	});
 </script>
-<script src="https://cdn.datatables.net/1.13.3/js/jquery.dataTables.min.js">
+<script src="https://cdn.datatables.net/1.13.3/js/jquery.dataTables.min.js"

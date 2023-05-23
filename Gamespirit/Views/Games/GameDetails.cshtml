@@ -11,7 +11,7 @@
                 <img class="detailedImg" src=@Model.CoverImageUrl>
             </div>
             <div class="row-lg">
-                <a id="rentButton" class="btn btn-dark btn-lg" role="button"> Rent Game</a>
+                <a id="rentButton" class="btn btn-dark btn-lg" role="button" asp-action="RequestAccess" asp-route-id="@Model.Id"> Rent Game</a>
             </div>
            
         </div>
